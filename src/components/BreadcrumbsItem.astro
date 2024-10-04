@@ -9,7 +9,7 @@ interface Props {
 const { href = "#", label = "Breadcrumb", currentPage = false } = Astro.props;
 ---
 
-<li class="breadcrumbs__item">
+<li class="inline after:content-['/'] after:m-2 last:after:content-['']">
   {
     currentPage ? (
       <span aria-current="page">{label}</span>
