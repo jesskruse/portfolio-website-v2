@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BreadcrumbsItem from "../../components/BreadcrumbsItem.astro";
+
+export async function getStaticPaths() {
+  const portfolioEntries = await getCollection("portfolio");
+  return portfolioEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<DefaultLayout title={entry.data.title} description={entry.data.description}>
+  <div class="container">
+    <div class="mt-12">
+      <Breadcrumbs>
+        <BreadcrumbsItem href="/" label="Home" />
+        <BreadcrumbsItem href="/portfolio" label="Portfolio" />
+        <BreadcrumbsItem currentPage={true} label={entry.data.title} />
+      </Breadcrumbs>
+    </div>
+  </div>
+  <section class="my-12">
+    <div class="container">
+      <h1>{entry.data.title}</h1>
+      <p class="text-2xl">{entry.data.description}</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="space-content my-12">
+      <Content />
+    </div>
+  </div>
+</DefaultLayout>
