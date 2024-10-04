@@ -1,0 +1,17 @@
+{
+    "firstName": "Jessica",
+    "lastName": "Kruse",
+    "image": {
+        "src": "test",
+        "alt": "test"
+    },
+    "occupation": "UX Designer",
+    "state": "Washington",
+    "skills": ["HTML", "CSS", "JavaScript", "Vue"
+    ],
+    "hobbies": [
+        "drawing",
+        "knitting",
+        "hiking"
+    ]
+}

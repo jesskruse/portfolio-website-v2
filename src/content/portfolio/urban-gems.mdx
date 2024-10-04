@@ -1,0 +1,171 @@
+---
+title: Urban Gems
+author: Jessica Kruse
+description: Case study showing the design process for a group project from conception to high-fidelity prototype.
+dates:
+  published: 2024-09-11
+  modified: 2024-09-11
+  projectYear: 2023-01-01
+timeline: 10 weeks
+context: Class project
+role: UX Designer
+tools: ["figma", "Miro", "Canva"]
+team: ["Shree Bala", "Jocelyn Gonzalez", "Shyama Panicker", "Aditya Ramnathkar"]
+image:
+  src: test
+  alt: test
+tags: ["figma"]
+---
+
+{/* // import CardGroup from '../../components/CardGroup.astro' */}
+{/* // import CardStatic from '../../components/CardStatic.astro' */}
+import Card from '../../components/Card.astro'
+import CardLink from '../../components/CardLink.astro'
+import Media from '../../components/Media.astro'
+import leanCanvas from '../../assets/img/urban-gems-lean-canvas.png'
+import sketchAudio from '../../assets/img/urban-gems-sketch-audio.jpg'
+import wireframes from '../../assets/img/urban-gems-wireframes.jpg'
+
+## Overview
+Urban Gems is an app that suggests destinations within walking distance to encourage exploration and reduce information overload. 
+
+This case study shows the design process for a group project from conception to high-fidelity prototype.
+<Card/ >
+<CardLink/ >
+{/* <Accordion>
+  <AccordionItem
+    header="First Item"
+  >
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod veritatis laboriosam est tenetur. </p>
+    <a href="#">Tab to me!</a>
+  </AccordionItem>
+  <AccordionItem
+    header="Second Item"
+  >
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod veritatis laboriosam est tenetur. </p>
+  </AccordionItem>
+</Accordion> */}
+
+## Problem
+- Residents want to know their neighborhood and discover new places, but information overload leads to analysis paralysis.
+- Local businesses are recovering from the pandemic and need support to attract new customers.
+- Cities want to encourage residents and visitors to support local businesses and engage with the community.
+
+## Solution
+Urban Gems helps users explore their community by recommending destinations from our partnerships with local businesses and city departments.
+
+{/* <CardGroup /> */}
+
+### Discover Hidden Gems
+Users can discover attractions within walking distance. Broad categories on the map view encourage exploration while the Hidden Gem pages provide more detail.
+
+### Control Serendipity
+Users can choose “don’t suggest gems like this" to personalize their recommendations and continue prioritizing novel experiences.
+
+### Collect Experiences
+Users can customize memories on their collections page with photos and text. Memories are displayed like a travel journal with instant film photos and a handwriting font.
+
+## Understanding the Problem
+Key insights from user research:
+
+- People want to know about events, not just locations.
+- Long-time locals have less motivation to explore than new residents.
+- Walking provides more opportunities for serendipity than driving.
+- People want trustworthy recommendations that don't feel like ads.
+- Information overload leads to analysis paralysis.
+
+{/* SHOW MORE */}
+Interviews
+We conducted 4 unstructured interviews with a convenience sample of personal connections. Our goal was to understand:
+
+The experience of exploring a local neighborhood.
+The frustrations and challenges of exploration.
+The feeling of serendipity while exploring.
+
+{/* END SHOW MORE */}
+
+## Business Opportunity
+We created a lean canvas to consider the business opportunities and context for our solution.
+
+{/* <Media src={leanCanvas.src} alt="Lean canvas" /> */}
+
+## Who are we designing for?
+We based our primary persona on the findings from our user interviews and created a secondary persona to represent the local business owner stakeholder's needs.
+
+### FOMO Fred
+Core needs
+- Discover new things to do around the city.
+- Break away from routine and ‘influencer-led’ choices.
+- Support local businesses in his city.
+
+### Startup Stella
+Core needs
+- Gain more customers at the cafe.
+- Compete with popular cafes in the area.
+- Generate more revenue with minimal upfront costs.
+
+{/* SHOW MORE */}
+We identified the need for a secondary persona to represent a business owner of a destination that could be recommended in our solution.
+
+Due to the time constraints of the course project, we did not conduct user interviews of small business owners. We conducted a literature review to identify the needs of small business owners.
+{/* END SHOW MORE */}
+
+## Designing a Delightful Experience
+### Sketching Early Ideas
+{/* sketch image */}
+<Media src={sketchAudio.src} alt="Sketch of audio guide idea." />
+### Wireframes for the User Flow
+{/* wireframes image */}
+<Media src={wireframes.src} alt="Wireframes of user flow." />
+### Initial prototype
+{/* card gallery: 8 initial prototype images */}
+
+## Testing in the Wild
+{/* tesing card image 1 */}
+Users used a phone with the Figma prototype and tested near locations in the prototype.
+{/* testing card image 2 */}
+I acted as audio navigation and guided users to their selected hidden gem.
+{/* testing card image 3 */}
+Users were prompted to use the capture a memory feature when they arrived.
+
+{/* SHOW MORE */}
+### Round 1
+Our first round of testing focused on the overall experience of the app (pictured above). User feedback was incorporated in the next prototype iteration before more testing.
+
+### Rounds 2 & 3
+The next rounds of testing focused on the interactions within the app and did not include the full experience of walking to destinations.
+
+With more time, we would have used the first round testing procedure to test our final prototype in context of use.
+{/* END SHOW MORE */}
+
+## Major Design interactions
+Three design iterations based on user testing are highlighted below.
+
+### Gems Near Memories
+{/* before card image */}
+Before: Unclear locations
+Users wanted to see high-level information about the type of nearby gem without clicking on it.
+{/* after card image */}
+After: Categorized locations
+We added broad categories and an icon to indicate the type of destination. This helped users feel informed while preserving spontaneity.
+
+### Hidden Gem Details
+{/* before card image */}
+Before: Inefficient information
+Users were confused about the “click to see more info” button. It took two clicks to get from the map view to the details page.
+{/* after card image */}
+After: Information hub
+We added a scrollable details card to the preview page. Users could see an overview and read more on a single screen.
+
+### My Collections
+{/* before card image */}
+Before: Simple delight
+Users expressed the most delight in the 'My Collections' page, but it was the least developed idea. One user said, 'I'd want to collect all the gems!'
+{/* after card image */}
+After: Developed delight
+We added customization options and leaned into our theme by styling the elements to resemble a travel journal.
+
+## Final Design
+{/* card gallery: 8 final design images */}
+
+{/* YouTube embed */}
