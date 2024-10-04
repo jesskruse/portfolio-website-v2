@@ -1,0 +1,43 @@
+---
+// source: https://github.com/markteekman/accessible-astro-starter/blob/main/src/layouts/DefaultLayout.astro
+// import "@astrojs/tailwind/base.css";
+// import "../assets/scss/globals.scss";
+import SiteMeta from "../components/SiteMeta.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title = "Jessica Kruse",
+  description = "A UX design portfolio",
+  url,
+  image = "/social-preview-image.png",
+  author = "Jessica Kruse",
+} = Astro.props;
+---
+
+<!--  -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 100)}
+      url={Astro.site
+        ? `${Astro.site}/${title.toLowerCase().replaceAll(" ", "-")}`
+        : `https://jessicakruse.design/${title.toLowerCase().replaceAll(" ", "-")}`}
+      image={image}
+      author={author}
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main-content" transition:animate="fade">
+      <slot />
+    </main>
+    <Footer />
