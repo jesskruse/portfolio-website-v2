@@ -1,6 +1,7 @@
 ---
-import { getCollection } from "astro:content";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Prose from "../../components/Prose.astro";
+import { getCollection } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BreadcrumbsItem from "../../components/BreadcrumbsItem.astro";
 
@@ -35,7 +36,9 @@ const { Content } = await entry.render();
 
   <div class="container">
     <div class="space-content my-12">
-      <Content />
+      <Prose>
+        <Content />
+      </Prose>
     </div>
   </div>
 </DefaultLayout>
