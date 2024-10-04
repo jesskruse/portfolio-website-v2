@@ -1,0 +1,40 @@
+---
+import { getEntry } from "astro:content";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+
+const jessicaKruseProfile = await getEntry("people", "jessica-kruse");
+const pageTitle = "About Me";
+---
+
+<DefaultLayout pageTitle={pageTitle}>
+  <section>
+    <div class="container">
+      <h2>{pageTitle}</h2>
+      <p>Here are a few facts about me:</p>
+      <ul class="m-3 list-disc">
+        <li>My name is {jessicaKruseProfile.data.firstName}.</li>
+        <li>
+          I live in {jessicaKruseProfile.data.state} and I work as a {
+            jessicaKruseProfile.data.occupation
+          }.
+        </li>
+        {
+          jessicaKruseProfile.data.hobbies.length >= 2 && (
+            <li>
+              Two of my hobbies are: {jessicaKruseProfile.data.hobbies[0]} and{" "}
+              {jessicaKruseProfile.data.hobbies[1]}
+            </li>
+          )
+        }
+      </ul>
+      <p>My skills are:</p>
+      <ul>
+        {
+          jessicaKruseProfile.data.skills.map((skill) => (
+            <li class="skill">{skill}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</DefaultLayout>
