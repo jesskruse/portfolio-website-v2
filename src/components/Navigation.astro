@@ -13,7 +13,10 @@ import logo from "../assets/img/logo.svg";
       <span class="font-bold">Jessica Kruse</span>
     </a>
     <div class="wrapper">
-      <nav class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static" aria-label="Main navigation desktop">
+      <nav
+        class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static"
+        aria-label="Main navigation desktop"
+      >
         <ul class="menu">
           <slot />
         </ul>
@@ -21,7 +24,10 @@ import logo from "../assets/img/logo.svg";
       <DarkModeButton />
       <ResponsiveToggleButton />
     </div>
-    <nav class="mobile-menu group-[.is-desktop]:hidden group-[.is-mobile]:hidden" aria-label="Main navigation mobile">
+    <nav
+      class="mobile-menu group-[.is-desktop]:hidden group-[.is-mobile]:hidden"
+      aria-label="Main navigation mobile"
+    >
       <ul class="menu">
         <slot />
       </ul>
@@ -34,9 +40,6 @@ import logo from "../assets/img/logo.svg";
     // variables
     const mainNav = document.querySelector("#main-navigation");
     const mainMenu = mainNav.querySelector("ul");
-    const dropdownMenus = [
-      ...document.querySelectorAll(".has-dropdown button"),
-    ];
 
     // functions
     const setActiveMenuItem = () => {
@@ -83,177 +86,9 @@ import logo from "../assets/img/logo.svg";
       }
     };
 
-    const isOutOfViewport = (element) => {
-      const elementBounds = element.getBoundingClientRect();
-      return (
-        elementBounds.right >
-        (window.innerWidth || document.documentElement.clientWidth)
-      );
-    };
-
-    const openDropdownMenu = (dropdownMenu) => {
-      const dropdownList = dropdownMenu.parentNode.querySelector("ul");
-
-      dropdownMenu.classList.add("show");
-      dropdownMenu.setAttribute("aria-expanded", "true");
-
-      if (isOutOfViewport(dropdownList)) {
-        dropdownList.style.left = "auto";
-      }
-    };
-
-    const closeDropdownMenu = (dropdownMenu) => {
-      dropdownMenu.classList.remove("show");
-      dropdownMenu.setAttribute("aria-expanded", "false");
-    };
-
-    const closeAllDropdownMenus = () => {
-      for (let i = 0; i < dropdownMenus.length; i++) {
-        closeDropdownMenu(dropdownMenus[i]);
-      }
-    };
-
-    const toggleDropdownMenu = (event) => {
-      if (event.target.getAttribute("aria-expanded") === "false") {
-        closeAllDropdownMenus();
-        openDropdownMenu(event.target);
-      } else {
-        closeDropdownMenu(event.target);
-      }
-    };
-
-    // execution
-    mainMenu &&
-      mainMenu.addEventListener("keydown", (event) => {
-        const element = event.target as Element;
-        const currentMenuItem = element.closest("li");
-        const menuItems = [...mainMenu.querySelectorAll(".menu-item")];
-        const currentDropdownMenu = element.closest(".has-dropdown button");
-        const currentDropdownMenuItem = element.closest(".has-dropdown li");
-        const currentIndex = menuItems.findIndex(
-          (item) => item === currentMenuItem
-        );
-
-        const key = event.key;
-        let targetItem;
-
-        if (key === "ArrowRight") {
-          if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
-            targetItem = menuItems[0];
-          } else {
-            targetItem = menuItems[currentIndex + 1];
-          }
-        }
-
-        if (key === "ArrowLeft") {
-          if (menuItems.indexOf(currentMenuItem) === 0) {
-            targetItem = menuItems[menuItems.length - 1];
-          } else {
-            targetItem = menuItems[currentIndex - 1];
-          }
-        }
-
-        if (key === "Escape") {
-          targetItem = menuItems[0];
-        }
-
-        if (currentDropdownMenu) {
-          const firstDropdownItem =
-            currentDropdownMenu.nextElementSibling.querySelector("li");
-
-          if (key === "ArrowDown") {
-            event.preventDefault();
-            openDropdownMenu(currentDropdownMenu);
-            targetItem = firstDropdownItem;
-          }
-
-          if (key === "Escape") {
-            closeDropdownMenu(currentDropdownMenu);
-          }
-        }
-
-        if (currentDropdownMenuItem) {
-          const currentDropdownList = currentDropdownMenuItem.parentNode;
-          const dropdownMenuItems = [
-            ...currentDropdownList.querySelectorAll("li"),
-          ];
-          const currentIndex = dropdownMenuItems.findIndex(
-            (item) => item === currentDropdownMenuItem
-          );
-
-          if (key === "ArrowDown") {
-            event.preventDefault();
-
-            if (
-              dropdownMenuItems.indexOf(
-                currentDropdownMenuItem as HTMLLIElement
-              ) ===
-              dropdownMenuItems.length - 1
-            ) {
-              targetItem = dropdownMenuItems[0];
-            } else {
-              targetItem = dropdownMenuItems[currentIndex + 1];
-            }
-          }
-
-          if (key === "ArrowUp") {
-            event.preventDefault();
-
-            if (
-              dropdownMenuItems.indexOf(
-                currentDropdownMenuItem as HTMLLIElement
-              ) === 0
-            ) {
-              targetItem = dropdownMenuItems[dropdownMenuItems.length - 1];
-            } else {
-              targetItem = dropdownMenuItems[currentIndex - 1];
-            }
-          }
-
-          if (key === "Escape") {
-            const currentDropdownMenu = (currentDropdownList as Element)
-              .previousElementSibling;
-            targetItem = currentDropdownMenu.parentNode;
-            closeAllDropdownMenus();
-          }
-
-          if (key === "Tab") {
-            const currentDropdownMenu = (currentDropdownList as Element)
-              .previousElementSibling;
-
-            if (
-              dropdownMenuItems.indexOf(
-                currentDropdownMenuItem as HTMLLIElement
-              ) ===
-              dropdownMenuItems.length - 1
-            ) {
-              closeDropdownMenu(currentDropdownMenu);
-            }
-          }
-        }
-
-        if (targetItem) {
-          targetItem.querySelector("a, button, input").focus();
-        }
-      });
-
-    dropdownMenus &&
-      dropdownMenus.forEach((dropdownMenu) => {
-        dropdownMenu.addEventListener("click", toggleDropdownMenu);
-      });
-
     setActiveMenuItem();
     checkMenuSize();
 
     window.addEventListener("resize", checkMenuSize);
-    window.addEventListener("click", (event) => {
-      const element = event.target as Element;
-      if (
-        !element.hasAttribute("aria-haspopup") &&
-        !element.classList.contains("submenu-item")
-      ) {
-        closeAllDropdownMenus();
-      }
-    });
   });
 </script>
