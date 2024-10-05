@@ -6,18 +6,18 @@ import { Image } from "astro:assets";
 import logo from "../assets/img/logo.svg";
 ---
 
-<div id="main-navigation" class="group is-desktop py-8">
+<div id="main-navigation" class="group is-desktop flex [&.is-mobile]:flex-col py-8">
   <div class="container flex justify-between flex-wrap">
     <a href="/" class="flex items-center gap-2 !no-underline">
       <Image src={logo} alt="Your Logo" width="47" height="37" />
       <span class="font-bold">Jessica Kruse</span>
     </a>
-    <div class="wrapper">
+    <div class="wrapper flex items-center gap-4">
       <nav
-        class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static"
+        class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static group-[.is-mobile]:hidden group-[.is-mobile]:-z-[99] group-[.is-mobile]:absolute group-[.is-mobile]:left-0"
         aria-label="Main navigation desktop"
       >
-        <ul class="menu">
+        <ul class="menu flex gap-6">
           <slot />
         </ul>
       </nav>
@@ -25,10 +25,10 @@ import logo from "../assets/img/logo.svg";
       <ResponsiveToggleButton />
     </div>
     <nav
-      class="mobile-menu group-[.is-desktop]:hidden group-[.is-mobile]:hidden"
+      class="mobile-menu group-[.is-desktop]:hidden group-[.is-mobile]:hidden basis-full px-8 py-0"
       aria-label="Main navigation mobile"
     >
-      <ul class="menu">
+      <ul class="menu flex flex-col gap-6">
         <slot />
       </ul>
     </nav>
