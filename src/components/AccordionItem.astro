@@ -1,0 +1,44 @@
+---
+// https://github.com/markteekman/accessible-astro-components/blob/main/AccordionItem.astro
+interface Props {
+  header: string;
+  children: any;
+}
+
+const { header } = Astro.props;
+---
+
+<li class="accordion__item">
+  <h3>
+    <button
+      id="accordion-header-1"
+      class="accordion__header"
+      aria-expanded="false"
+      aria-controls="accordion-panel-1"
+      onclick="toggleAccordionItem()"
+    >
+      {header}
+      <svg
+        class="header__toggle-indicator"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <path
+          fill="currentColor"
+          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        ></path>
+      </svg>
+    </button>
+  </h3>
+  <div
+    id="accordion-panel-1"
+    role="region"
+    class="accordion__panel"
+    aria-labelledby="accordion-header-1"
+  >
+    <div class="panel__inner">
+      <slot />
+    </div>
+  </div>
+</li>
