@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
 <header>
   <SkipLinks />
   <Navigation>
-    <NavigationLink href="/" title="Home"></NavigationLink>
+    <NavigationLink href="/" title="Home" />
     <li class="menu-item">
       <a href="/">Home</a>
     </li>
@@ -26,12 +26,17 @@ import { Icon } from "astro-icon/components";
       <a
         href="https://www.linkedin.com/in/kruse-jessica"
         title="Go to LinkedIn page"
+        class="block"
       >
         <Icon name="ion:logo-linkedin" />
       </a>
     </li>
     <li class="menu-item type-icon">
-      <a href="https://github.com/jesskruse" title="Go to GitHub page">
+      <a
+        href="https://github.com/jesskruse"
+        title="Go to GitHub page"
+        class="block"
+      >
         <Icon name="ion:logo-github" />
       </a>
     </li>
