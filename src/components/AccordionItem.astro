@@ -8,11 +8,11 @@ interface Props {
 const { header } = Astro.props;
 ---
 
-<li class="accordion__item w-full">
+<li class="group accordion__item w-full px-4">
   <h3>
     <button
       id="accordion-header-1"
-      class="accordion__header w-full flex justify-between border-2 border-solid border-black p-4 border-b-0 focus:outline-offset-[-6px] focus:shadow-inset focus:shadow-white [&:is-active]:border-2 [&:is-active]:border-solid [&:is-active]:border-black"
+      class="accordion__header w-full flex justify-between border-2 border-solid border-black p-4 border-b-0 focus:outline-offset-[-6px] focus:shadow-inset focus:shadow-white group-only-of-type:border-2 group-only-of-type:border-solid group-only-of-type:border-black group-last-of-type:border-2 group-last-of-type:border-solid group-last-of-type:border-black group-[.is-active]:border-2 group-[.is-active]:border-solid group-[.is-active]:border-black"
       aria-expanded="false"
       aria-controls="accordion-panel-1"
       onclick="toggleAccordionItem()"
@@ -34,7 +34,7 @@ const { header } = Astro.props;
   <div
     id="accordion-panel-1"
     role="region"
-    class="accordion__panel invisible overflow-hidden h-0 border-l-2 border-r-2 border-solid border-black transition-[height] ease-in-out duration-300 [&is-active]:visible active:h-fit active:transition-[height] active:ease-in-out"
+    class="accordion__panel invisible overflow-hidden h-0 border-l-2 border-r-2 border-solid border-black group-only-of-type:border-b-2 group-only-of-type:border-solid group-only-of-type:border-black group-last-of-type:border-b-2 group-last-of-type:border-solid group-last-of-type:border-black group-[.is-active]:visible group-[.is-active]:h-fit transition-all ease-in-out duration-300"
     aria-labelledby="accordion-header-1"
   >
     <div class="panel__inner py-8 px-4">
