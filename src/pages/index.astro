@@ -1,9 +1,24 @@
 ---
+import AccordionNew from "../components/AccordionNew.astro";
+import Accordion from "../components/Accordion.astro";
+import AccordionItem from "../components/AccordionItem.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
 <DefaultLayout title="Home">
   <section class="my-64">
     <h2>Jessica Kruse</h2>
+    <div class="p-4"></div>
+    <AccordionNew></AccordionNew>
+    <div class="p-4"></div>
+    <Accordion>
+      <AccordionItem header="First Item">
+        <p>some stuff</p>
+        <a href="#">Tab to me!</a>
+      </AccordionItem>
+      <AccordionItem header="Second Item">
+        <p>more stuff</p>
+      </AccordionItem>
+    </Accordion>
   </section>
 </DefaultLayout>
