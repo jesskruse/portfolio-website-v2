@@ -3,7 +3,7 @@
 import type AccordionItem from "../components/AccordionItem.astro";
 
 interface Props {
-  children: AccordionItem | AccordionItem[];
+  children: typeof AccordionItem | (typeof AccordionItem)[];
 }
 ---
 
