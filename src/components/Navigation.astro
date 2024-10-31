@@ -1,7 +1,7 @@
 ---
 // source: https://github.com/markteekman/accessible-astro-starter/blob/main/src/components/Navigation.astro
-import NavigationMobileButton from "./NavigationMobileButton.astro"
-import NavigationDarkModeButton from "./NavigationDarkModeButton.astro";
+import NavigationButtonMobile from "./NavigationButtonMobile.astro";
+import NavigationButtonDarkMode from "./NavigationButtonDarkMode.astro";
 import { Image } from "astro:assets";
 import logo from "../assets/img/logo.svg";
 ---
@@ -24,8 +24,8 @@ import logo from "../assets/img/logo.svg";
           <slot />
         </ul>
       </nav>
-      <NavigationDarkModeButton />
-      <NavigationMobileButton />
+      <NavigationButtonDarkMode />
+      <NavigationButtonMobile />
     </div>
     <nav
       class="mobile-menu group-[.is-desktop]:hidden group-[.is-mobile]:hidden group-[.is-mobile]:[&.show]:block basis-full px-8 py-0"
