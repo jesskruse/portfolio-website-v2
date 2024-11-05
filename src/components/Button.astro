@@ -1,7 +1,8 @@
 ---
 // https://www.youtube.com/watch?v=Yc7MYP8qU-8
-
-
+const { type = "button", size = "md", isFilled, classes, ...rest  } = Astro.props;
 ---
 
-<button>Button</button>
+<button class:list={[classes, { filled: isFilled }]} {type} data-size={size} {...rest}>
+  <slot />
+</button>
