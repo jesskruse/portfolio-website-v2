@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 ---
 
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="h-full overflow-x-hidden">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,9 +34,15 @@ const {
       author={author}
     />
   </head>
-  <body>
+  <body
+    class="flex min-h-full flex-col overflow-x-hidden bg-white dark:bg-black"
+  >
     <Header />
-    <main id="main-content" transition:animate="fade">
+    <main
+      id="main-content"
+      transition:animate="fade"
+      class="flex shrink-0 grow basis-auto"
+    >
       <slot />
     </main>
     <Footer /></body>
