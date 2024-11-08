@@ -4,31 +4,34 @@ import NavigationButtonMobile from "./NavigationButtonMobile.astro";
 import NavigationButtonDarkMode from "./NavigationButtonDarkMode.astro";
 import { Image } from "astro:assets";
 import logo from "../assets/img/logo.svg";
+import Container from "./Container.astro";
 ---
 
 <div
   id="main-navigation"
   class="group is-desktop flex [&.is-mobile]:flex-col py-8"
 >
-  <div class="container flex justify-between flex-wrap">
+<Container>
+  <div class="flex justify-between flex-wrap">
     <a href="/" class="flex items-center gap-2 !no-underline">
       <Image src={logo} alt="Your Logo" width="47" height="37" />
       <span class="font-bold">Jessica Kruse</span>
     </a>
     <div class="wrapper flex items-center gap-4">
       <nav
-        class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static group-[.is-mobile]:hidden group-[.is-mobile]:-z-[99] group-[.is-mobile]:absolute group-[.is-mobile]:left-0"
-        aria-label="Main navigation desktop"
+      class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static group-[.is-mobile]:hidden group-[.is-mobile]:-z-[99] group-[.is-mobile]:absolute group-[.is-mobile]:left-0"
+      aria-label="Main navigation desktop"
       >
-        <ul class="menu flex gap-6">
-          <slot />
-        </ul>
-      </nav>
-      <NavigationButtonDarkMode />
-      <NavigationButtonMobile />
-    </div>
-    <nav
-      class="mobile-menu group-[.is-desktop]:hidden group-[.is-mobile]:hidden group-[.is-mobile]:[&.show]:block basis-full px-8 py-0"
+      <ul class="menu flex gap-6">
+        <slot />
+      </ul>
+    </nav>
+    <NavigationButtonDarkMode />
+    <NavigationButtonMobile />
+  </div>
+</Container>
+  <nav
+  class="mobile-menu group-[.is-desktop]:hidden group-[.is-mobile]:hidden group-[.is-mobile]:[&.show]:block basis-full px-8 py-0"
       aria-label="Main navigation mobile"
     >
       <ul class="menu flex flex-col gap-6">
