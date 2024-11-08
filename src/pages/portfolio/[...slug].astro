@@ -1,9 +1,9 @@
 ---
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
-import Prose from "../../components/Prose.astro";
 import { getCollection } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BreadcrumbsItem from "../../components/BreadcrumbsItem.astro";
+import Container from "../../components/Container.astro";
 
 export async function getStaticPaths() {
   const portfolioEntries = await getCollection("portfolio");
@@ -18,15 +18,15 @@ const { Content } = await entry.render();
 ---
 
 <DefaultLayout title={entry.data.title} description={entry.data.description}>
-  <div class="container">
-    <Prose>
-      <div class="mt-12">
-        <Breadcrumbs>
-          <BreadcrumbsItem href="/" label="Home" />
-          <BreadcrumbsItem href="/portfolio" label="Portfolio" />
-          <BreadcrumbsItem currentPage={true} label={entry.data.title} />
-        </Breadcrumbs>
-      </div>
+  <Container>
+    <div class="prose mx-auto mt-12 dark:prose-invert">
+      <Breadcrumbs>
+        <BreadcrumbsItem href="/" label="Home" />
+        <BreadcrumbsItem href="/portfolio" label="Portfolio" />
+        <BreadcrumbsItem currentPage={true} label={entry.data.title} />
+      </Breadcrumbs>
+    </div>
+    <article class="prose mx-auto dark:prose-invert">
       <section>
         <div class="container">
           <h1>{entry.data.title}</h1>
@@ -37,6 +37,6 @@ const { Content } = await entry.render();
       <div class="container">
         <Content />
       </div>
-    </Prose>
-  </div>
+    </article>
+  </Container>
 </DefaultLayout>
