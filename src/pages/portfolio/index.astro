@@ -8,14 +8,14 @@ const pageTitle = "Portfolio";
 ---
 
 <DefaultLayout pageTitle={pageTitle}>
-  <section class=" prose dark:prose-invert my-12">
+  <section class="prose my-12 dark:prose-invert">
     <Container>
       <h1>{pageTitle}</h1>
-      <p class="text-2xl"></p>
+      <p class="lead">Some description</p>
     </Container>
   </section>
-  <section class="my-10">
-    <dv class="container">
+  <section class="prose my-10 dark:prose-invert">
+    <Container>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         <!-- {
             allProjects.map((project) => (
@@ -30,6 +30,6 @@ const pageTitle = "Portfolio";
             ))
             } -->
       </div>
-    </dv>
+    </Container>
   </section>
 </DefaultLayout>
