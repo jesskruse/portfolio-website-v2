@@ -10,6 +10,8 @@ interface Props {
 const { href, linkTitle, iconName } = Astro.props;
 ---
 
-<a href={href} title={linkTitle} class="block">
-  <Icon name={iconName} class="prose -mt-1 h-auto w-8 dark:prose-invert" />
-</a>
+<li class="menu-item type-icon">
+  <a href={href} title={linkTitle} class="block">
+    <Icon name={iconName} class="prose -mt-1 h-auto w-8 dark:prose-invert" />
+  </a>
+</li>
