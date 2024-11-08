@@ -1,18 +1,25 @@
 ---
 // source: https://github.com/markteekman/accessible-astro-starter/blob/main/src/components/ContentMedia.astro
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
+import Container from "./Container.astro";
 
 const { imgSrc, imgAlt, reverseImg = false } = Astro.props;
 ---
 
 <section class="my-64">
-  <div class="container">
+  <Container>
     <div class="grid grid-cols-1 gap-24 md:grid-cols-2">
-      {!reverseImg ? <Image class="rounded-lg" src={imgSrc} alt={imgAlt} /> : ""}
-      <div class="space-content flex flex-col justify-center">
+      {
+        !reverseImg ? (
+          <Image class="rounded-lg" src={imgSrc} alt={imgAlt} />
+        ) : (
+          ""
+        )
+      }
+      <div class="prose flex flex-col justify-center dark:prose-invert">
         <slot />
       </div>
       {reverseImg ? <Image class="rounded-lg" src={imgSrc} alt={imgAlt} /> : ""}
     </div>
-  </div>
+  </Container>
 </section>
