@@ -1,13 +1,14 @@
 ---
+import Container from "../components/Container.astro";
 import DefaultLayout from "./DefaultLayout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <DefaultLayout title={frontmatter.title}>
-  <div class="container">
-    <div class="space-content my-12">
+  <Container>
+    <div class="prose my-12 dark:prose-invert">
       <slot />
     </div>
-  </div>
+  </Container>
 </DefaultLayout>
