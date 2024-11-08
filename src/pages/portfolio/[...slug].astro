@@ -26,17 +26,15 @@ const { Content } = await entry.render();
         <BreadcrumbsItem currentPage={true} label={entry.data.title} />
       </Breadcrumbs>
     </div>
-    <article class="prose mx-auto dark:prose-invert">
+    <article class="prose mx-auto mt-12 dark:prose-invert">
       <section>
-        <div class="container">
-          <h1>{entry.data.title}</h1>
-          <p class="lead">{entry.data.description}</p>
-        </div>
+        <h1>{entry.data.title}</h1>
+        <p class="lead">{entry.data.description}</p>
       </section>
 
-      <div class="container">
+      <section>
         <Content />
-      </div>
+      </section>
     </article>
   </Container>
 </DefaultLayout>
