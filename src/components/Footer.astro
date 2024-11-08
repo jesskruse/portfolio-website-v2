@@ -1,17 +1,19 @@
 ---
+import Container from "./Container.astro";
+
 // source: https://github.com/markteekman/accessible-astro-starter/blob/main/src/components/Footer.astro
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="shrink-0">
   <section class="py-8">
-    <div class="container">
+    <Container>
       <p>
         &copy; {currentYear} - Jessica Kruse. Based on <a
           href="https://github.com/markteekman/accessible-astro-starter"
           >Accessible Astro Starter Theme</a
         >
       </p>
-    </div>
+    </Container>
   </section>
 </footer>
