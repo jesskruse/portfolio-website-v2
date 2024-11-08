@@ -11,34 +11,36 @@ import Container from "./Container.astro";
   id="main-navigation"
   class="is-desktop group flex py-8 [&.is-mobile]:flex-col"
 >
-<Container>
-  <div class="flex flex-wrap justify-between">
-    <a href="/" class="flex items-center gap-2">
-      <Image src={logo} alt="Your Logo" width="47" height="37" />
-      <span class="prose font-bold dark:prose-invert">Jessica Kruse</span>
-    </a>
-    <div class="wrapper flex items-center gap-4">
-      <nav
-      class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static group-[.is-mobile]:absolute group-[.is-mobile]:left-0 group-[.is-mobile]:-z-[99] group-[.is-mobile]:hidden"
-      aria-label="Main navigation desktop"
-      >
-      <ul class="menu flex gap-6">
-        <slot />
-      </ul>
-    </nav>
-    <NavigationButtonDarkMode />
-    <NavigationButtonMobile />
-  </div>
-</Container>
-  <nav
-  class="mobile-menu basis-full px-8 py-0 group-[.is-desktop]:hidden group-[.is-mobile]:hidden group-[.is-mobile]:[&.show]:block"
+  <Container>
+    <div class="flex flex-wrap justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <Image src={logo} alt="Your Logo" width="47" height="37" />
+        <span class="font-bold text-purple-600 dark:text-teal-400"
+          >Jessica Kruse</span
+        >
+      </a>
+      <div class="wrapper flex items-center gap-4">
+        <nav
+          class="desktop-menu group-[.is-desktop]:visible group-[.is-desktop]:static group-[.is-mobile]:absolute group-[.is-mobile]:left-0 group-[.is-mobile]:-z-[99] group-[.is-mobile]:hidden"
+          aria-label="Main navigation desktop"
+        >
+          <ul class="menu flex gap-6">
+            <slot />
+          </ul>
+        </nav>
+        <NavigationButtonDarkMode />
+        <NavigationButtonMobile />
+      </div>
+    </div>
+    <nav
+      class="mobile-menu basis-full px-8 py-0 group-[.is-desktop]:hidden group-[.is-mobile]:hidden group-[.is-mobile]:[&.show]:block"
       aria-label="Main navigation mobile"
     >
       <ul class="menu flex flex-col gap-6">
         <slot />
       </ul>
     </nav>
-  </div>
+  </Container>
 </div>
 
 <script>
