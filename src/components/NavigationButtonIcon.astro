@@ -1,0 +1,15 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  href: string;
+  linkTitle: string;
+  iconName: string;
+}
+
+const { href, linkTitle, iconName } = Astro.props;
+---
+
+<a href={href} title={linkTitle} class="block">
+  <Icon name={iconName} class="prose -mt-1 h-auto w-8 dark:prose-invert" />
+</a>
