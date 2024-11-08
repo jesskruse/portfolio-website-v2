@@ -1,14 +1,15 @@
 ---
 import { getEntry } from "astro:content";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Container from "../components/Container.astro";
 
 const jessicaKruseProfile = await getEntry("people", "jessica-kruse");
 const pageTitle = "About Me";
 ---
 
 <DefaultLayout pageTitle={pageTitle}>
-  <section>
-    <div class="container">
+  <section class="prose dark:prose-invert">
+    <Container>
       <h2>{pageTitle}</h2>
       <p>Here are a few facts about me:</p>
       <ul class="m-3 list-disc">
@@ -35,6 +36,6 @@ const pageTitle = "About Me";
           ))
         }
       </ul>
-    </div>
+    </Container>
   </section>
 </DefaultLayout>
