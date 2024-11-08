@@ -3,7 +3,7 @@
 import Navigation from "../components/Navigation.astro";
 import NavigationLink from "./NavigationLink.astro";
 import SkipLinks from "../components/SkipLinks.astro";
-import { Icon } from "astro-icon/components";
+import NavigationButtonIcon from "./NavigationButtonIcon.astro";
 ---
 
 <header>
@@ -23,22 +23,18 @@ import { Icon } from "astro-icon/components";
       <a href="/about/">About Me</a>
     </li>
     <li class="menu-item type-icon">
-      <a
+      <NavigationButtonIcon
         href="https://www.linkedin.com/in/kruse-jessica"
-        title="Go to LinkedIn page"
-        class="block"
-      >
-        <Icon name="ion:logo-linkedin" class="prose dark:prose-invert h-auto -mt-1 w-8" />
-      </a>
+        linkTitle="Go to LinkedIn page"
+        iconName="ion:logo-linkedin"
+      />
     </li>
     <li class="menu-item type-icon">
-      <a
+      <NavigationButtonIcon
         href="https://github.com/jesskruse"
-        title="Go to GitHub page"
-        class="block"
-      >
-        <Icon name="ion:logo-github" class="prose dark:prose-invert h-auto -mt-1 w-8" />
-      </a>
+        linkTitle="Go to GitHub page"
+        iconName="ion:logo-github"
+      />
     </li>
   </Navigation>
 </header>
