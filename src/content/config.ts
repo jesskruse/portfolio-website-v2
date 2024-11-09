@@ -70,6 +70,7 @@ const socialCollection = defineCollection({ type: 'data',
 
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
+//    After any changes to config.ts, run npx astro sync to update astro's configuration files
 export const collections = {
   'blog': blogCollection,
   'portfolio': portfolioCollection,
