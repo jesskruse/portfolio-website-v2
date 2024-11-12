@@ -10,18 +10,9 @@ import NavigationLinkIcon from "./NavigationLinkIcon.astro";
   <SkipLinks />
   <Navigation>
     <NavigationLink href="/" title="Home" />
-    <li class="menu-item">
-      <a href="/">Home</a>
-    </li>
-    <li class="menu-item prose">
-      <a href="/portfolio/">Portfolio</a>
-    </li>
-    <li class="menu-item">
-      <a href="/blog/">Blog</a>
-    </li>
-    <li class="menu-item">
-      <a href="/about/">About Me</a>
-    </li>
+    <NavigationLink href="/portfolio/" title="Portfolio" />
+    <NavigationLink href="/blog/" title="Blog" />
+    <NavigationLink href="/about/" title="About Me" />
     <NavigationLinkIcon
       href="https://www.linkedin.com/in/kruse-jessica"
       linkTitle="Go to LinkedIn page"
