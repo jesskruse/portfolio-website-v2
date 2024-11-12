@@ -8,10 +8,12 @@ const { href, title } = Astro.props;
 ---
 
 <!--  -->
-<li
-  class="menu-item prose dark:prose-invert prose-a:no-underline hover:prose-a:text-sky-900 hover:prose-a:underline hover:prose-a:decoration-wavy hover:prose-a:underline-offset-8 focus-visible:prose-a:outline-dotted focus-visible:prose-a:outline-2 focus-visible:prose-a:outline-offset-2 focus-visible:prose-a:outline-current dark:hover:prose-a:text-sky-300 [&.is-active]:prose-a:font-bold [&.is-active]:prose-a:underline [&.is-active]:prose-a:decoration-wavy [&.is-active]:prose-a:underline-offset-8"
->
-  <a href={href} class="rounded-md p-1">{title}</a>
+<li class="menu-item">
+  <a
+    href={href}
+    class="prose rounded-md p-1 dark:prose-invert no-underline hover:text-sky-900 hover:underline hover:decoration-wavy hover:underline-offset-8 focus-visible:outline-dotted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:hover:text-sky-300 [&.is-active]:font-bold [&.is-active]:underline [&.is-active]:decoration-wavy [&.is-active]:underline-offset-8"
+    >{title}</a
+  >
 </li>
 
 <!-- rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white -->
