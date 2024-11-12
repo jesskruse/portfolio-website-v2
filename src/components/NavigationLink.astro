@@ -7,7 +7,10 @@ interface Props {
 const { href, title } = Astro.props;
 ---
 
-<li class="menu-item prose prose-a:text-lg prose-a:text-teal-500 prose-a:no-underline hover:prose-a:underline hover:prose-a:decoration-wavy hover:prose-a:underline-offset-8 hover:prose-a:text-teal-600 focus:prose-a:outline focus:prose-a:outline-2 focus:prose-a:outline-transparent focus:prose-a:shadow focus:prose-a:shadow-black [&.is-active]:prose-a:font-bold">
+<!--  -->
+<li
+  class="menu-item prose dark:prose-invert prose-a:no-underline hover:prose-a:text-sky-900 hover:prose-a:underline hover:prose-a:decoration-wavy hover:prose-a:underline-offset-8 focus-visible:prose-a:outline-dotted focus-visible:prose-a:outline-2 focus-visible:prose-a:outline-offset-2 focus-visible:prose-a:outline-current dark:hover:prose-a:text-sky-300 [&.is-active]:prose-a:font-bold [&.is-active]:prose-a:underline [&.is-active]:prose-a:decoration-wavy [&.is-active]:prose-a:underline-offset-8"
+>
   <a href={href} class="rounded-md p-1">{title}</a>
 </li>
 
