@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BreadcrumbsItem from "../../components/BreadcrumbsItem.astro";
 import Container from "../../components/Container.astro";
+import Prose from "../../components/Prose.astro";
 
 export async function getStaticPaths() {
   const portfolioEntries = await getCollection("portfolio");
@@ -19,22 +20,24 @@ const { Content } = await entry.render();
 
 <DefaultLayout title={entry.data.title} description={entry.data.description}>
   <Container>
-    <div class="prose mx-auto mt-12 dark:prose-invert">
-      <Breadcrumbs>
-        <BreadcrumbsItem href="/" label="Home" />
-        <BreadcrumbsItem href="/portfolio" label="Portfolio" />
-        <BreadcrumbsItem currentPage={true} label={entry.data.title} />
-      </Breadcrumbs>
-    </div>
-    <article class="prose mx-auto mt-12 dark:prose-invert">
-      <section>
-        <h1>{entry.data.title}</h1>
-        <p class="lead">{entry.data.description}</p>
-      </section>
+    <Prose>
+      <div class="mt-12">
+        <Breadcrumbs>
+          <BreadcrumbsItem href="/" label="Home" />
+          <BreadcrumbsItem href="/portfolio" label="Portfolio" />
+          <BreadcrumbsItem currentPage={true} label={entry.data.title} />
+        </Breadcrumbs>
+      </div>
+      <article class="mt-12">
+        <section>
+          <h1>{entry.data.title}</h1>
+          <p class="lead">{entry.data.description}</p>
+        </section>
 
-      <section>
-        <Content />
-      </section>
-    </article>
+        <section>
+          <Content />
+        </section>
+      </article>
+    </Prose>
   </Container>
 </DefaultLayout>
