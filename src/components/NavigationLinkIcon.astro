@@ -11,7 +11,11 @@ const { href, linkTitle, iconName } = Astro.props;
 ---
 
 <li class="menu-item type-icon">
-  <a href={href} title={linkTitle} class="block">
-    <Icon name={iconName} class="prose -mt-1 h-auto w-8 dark:prose-invert" />
+  <a
+    href={href}
+    title={linkTitle}
+    class="block prose rounded-md p-1 dark:prose-invert no-underline hover:text-sky-900 hover:underline hover:decoration-wavy hover:underline-offset-8 focus-visible:outline-dotted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:hover:text-sky-300"
+  >
+    <Icon name={iconName} class="-mt-1 h-auto w-8" />
   </a>
 </li>
