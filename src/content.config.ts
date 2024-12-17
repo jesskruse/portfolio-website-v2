@@ -1,7 +1,7 @@
 // https://docs.astro.build/en/guides/content-collections/#defining-collections
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 
 // 2. Define your collection(s)
 const blogCollection = defineCollection({ 
@@ -46,7 +46,8 @@ const blogCollection = defineCollection({
     })
 });
 
-const peopleCollection = defineCollection({ type: 'data',
+const peopleCollection = defineCollection({ 
+    loader: glob({ pattern: '**/[^_]*.json', base: "./src/people" }),
     schema: z.object({
         firstName: z.string(),
         lastName: z.string(),
@@ -62,7 +63,8 @@ const peopleCollection = defineCollection({ type: 'data',
     })
 });
 
-const socialCollection = defineCollection({ type: 'data',
+const socialCollection = defineCollection({ 
+    loader: glob({ pattern: '**/[^_]*.json', base: "./src/social" }),
     schema: z.object({
         name: z.string(),
         link: z.string(),
