@@ -1,6 +1,6 @@
 ---
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BreadcrumbsItem from "../../components/BreadcrumbsItem.astro";
 import Container from "../../components/Container.astro";
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <DefaultLayout title={entry.data.title} description={entry.data.description}>
