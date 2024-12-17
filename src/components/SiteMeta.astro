@@ -1,6 +1,6 @@
 ---
 // source: https://github.com/markteekman/accessible-astro-starter/blob/main/src/components/SiteMeta.astro
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 const { title, description, url, image, author } = Astro.props;
 
@@ -27,4 +27,4 @@ let subtitle = "Jessica Kruse";
 <!-- page title -->
 <title>{title} - {subtitle}</title>
 
-<ViewTransitions />
+<ClientRouter />
