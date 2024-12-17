@@ -1,10 +1,10 @@
 // https://docs.astro.build/en/guides/content-collections/#defining-collections
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
-import { glob, file } from 'astro/loaders';
+import { glob } from 'astro/loaders';
 
 // 2. Define your collection(s)
-const blogCollection = defineCollection({ 
+const blog = defineCollection({ 
     loader: glob({ pattern: '**/[^_]*.md', base: "./src/blog" }),
     schema: z.object({
         title: z.string(),
@@ -22,8 +22,8 @@ const blogCollection = defineCollection({
     })
  });
 
- const portfolioCollection = defineCollection({ 
-    loader: glob({ pattern: '**/[^_]*.md', base: "./src/portfolio" }),
+ const portfolio = defineCollection({ 
+    loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/portfolio" }),
     schema: z.object({
         title: z.string(),
         author: z.string(),
@@ -46,7 +46,7 @@ const blogCollection = defineCollection({
     })
 });
 
-const peopleCollection = defineCollection({ 
+const people = defineCollection({ 
     loader: glob({ pattern: '**/[^_]*.json', base: "./src/people" }),
     schema: z.object({
         firstName: z.string(),
@@ -63,7 +63,7 @@ const peopleCollection = defineCollection({
     })
 });
 
-const socialCollection = defineCollection({ 
+const social = defineCollection({ 
     loader: glob({ pattern: '**/[^_]*.json', base: "./src/social" }),
     schema: z.object({
         name: z.string(),
@@ -73,11 +73,9 @@ const socialCollection = defineCollection({
 });
 
 // 3. Export a single `collections` object to register your collection(s)
-//    This key should match your collection directory name in "src/content"
-//    After any changes to config.ts, run npx astro sync to update astro's configuration files
-export const collections = {
-  'blog': blogCollection,
-  'portfolio': portfolioCollection,
-  'people': peopleCollection,
-  'social': socialCollection,
+export const collections = { 
+    blog, 
+    portfolio, 
+    people, 
+    social
 };
