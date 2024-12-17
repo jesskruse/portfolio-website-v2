@@ -9,7 +9,7 @@ import Prose from "../../components/Prose.astro";
 export async function getStaticPaths() {
   const portfolioEntries = await getCollection("portfolio");
   return portfolioEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { id: entry.id },
     props: { entry },
   }));
 }
