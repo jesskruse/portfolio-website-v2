@@ -5,7 +5,7 @@ import { glob } from 'astro/loaders';
 
 // 2. Define your collection(s)
 const blog = defineCollection({ 
-    loader: glob({ pattern: '**/[^_]*.md', base: "./src/blog" }),
+    loader: glob({ pattern: '**/[^_]*.md', base: "./src/data/blog" }),
     schema: z.object({
         title: z.string(),
         author: z.string(),
@@ -23,7 +23,7 @@ const blog = defineCollection({
  });
 
  const portfolio = defineCollection({ 
-    loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/portfolio" }),
+    loader: glob({ pattern: '**/[^_]*.mdx', base: "./src/data/portfolio" }),
     schema: z.object({
         title: z.string(),
         author: z.string(),
@@ -47,7 +47,7 @@ const blog = defineCollection({
 });
 
 const people = defineCollection({ 
-    loader: glob({ pattern: '**/[^_]*.json', base: "./src/people" }),
+    loader: glob({ pattern: '**/[^_]*.json', base: "./src/data/people" }),
     schema: z.object({
         firstName: z.string(),
         lastName: z.string(),
@@ -64,7 +64,7 @@ const people = defineCollection({
 });
 
 const social = defineCollection({ 
-    loader: glob({ pattern: '**/[^_]*.json', base: "./src/social" }),
+    loader: glob({ pattern: '**/[^_]*.json', base: "./src/data/social" }),
     schema: z.object({
         name: z.string(),
         link: z.string(),
